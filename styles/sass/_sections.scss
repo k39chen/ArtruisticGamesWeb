@@ -1,0 +1,544 @@
+//============================================================
+// * HEADER
+//============================================================
+#header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $header-height;
+    padding: 0 2.0em;
+    line-height: $header-height;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    @include box-sizing(border-box);
+
+    .logo {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $white;
+
+        img {
+            float: left;
+            margin-right: 0.5em;
+            height: 100%;
+        }
+        em {
+            font-weight: bold;
+            color: $blue;
+        }
+    }
+    .nav-list {
+        float: right;
+        height: $header-height;
+        list-style: none;
+
+        .nav-item {
+            float: left;
+            width: 7.0em;
+            height: 100%;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            text-align: center;
+
+            a {
+                @include box-sizing(border-box);
+                @include transition(color 0.2s);
+                @include inline-block;
+                cursor: pointer;
+                position: relative;
+                width: 100%;
+                line-height: $header-height;
+                text-decoration: none;
+                color: $white;
+
+                &:hover {
+                    color: $blue;
+                }
+            }
+        }
+    }
+}
+//============================================================
+// * SECTION: EXPO
+//============================================================
+#expo {
+    padding: 0;
+    background-color: $dark-gray;
+    overflow: hidden;
+    max-height: 100%;
+
+    .carousel {
+        min-height: $min-carousel-height;
+        position: relative;
+
+        .panels {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+
+            .panel {
+                @include transition(
+                    opacity 0.5s ease-in,
+                    width 0.2s,
+                    height 0.2s
+                );
+                position: absolute;
+                @include opacity(0);
+
+                &.active {
+                    @include opacity(1);
+                }
+            }
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0);
+            text-align: center;
+
+            .controls {
+                position: absolute;
+                bottom: 1.0em;
+                left: 0;
+                width: 100%;
+
+                .control {
+                    @include transition(opacity 0.2s);
+                    @include transition(transform 0.2s ease-out);
+                    @include opacity(0.5);
+                    @include user-select(none);
+                    @include text-shadow(3px 3px 5px rgba(0,0,0,0.5));
+                    cursor: pointer;
+                    color: $white;
+                    padding: 0 0.25em;
+
+                    &:hover {
+                        @include opacity(1);
+                        @include scale(1.25, 1.25);
+                    }
+                    &.active {
+                        @include opacity(1);
+                    }
+                }
+            }
+        }
+    }
+}
+//============================================================
+// * SECTION: NEWS
+//============================================================
+#news {
+    background-color: $lightest-gray;
+    overflow: hidden;
+
+    .news-articles {
+        overflow: hidden;
+    }
+    .news-article {
+        float: left;
+        width: calc(100%/3);
+        padding: 1.0em;
+        @include transition(transform 0.2s, ease-out);
+        @include box-sizing(border-box);
+
+        .wrapper {
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            padding: 0 0 1.0em 0;
+            background: $white;
+            border: solid 1px #DDD;
+            height: $news-article-height;
+
+            .blur-target {
+                .banner {
+                    width: 100%;
+                }
+                .text-wrapper {
+                    position: relative;
+                    overflow: hidden;
+                    height: $news-article-text-height;
+
+                    .title, .text {
+                        padding: 0 1.5em;
+                    }
+                    .title {
+                        margin-bottom: 0.75em;
+                        padding-top: 0.75em;
+                        padding-bottom: 0.75em;
+                        font-weight: bold;
+                        border-bottom: solid 1px #EEE;
+                    }
+                    .text {
+                        line-height: 1.25em;
+                    }
+                    .shadow {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 50%;
+                        @include background-image(linear-gradient(transparent, $white));
+                    }
+                }
+                .posted {
+                    overflow: hidden;
+                    padding: 0.75em 1.5em;
+                    font-size: 0.8em;
+                    line-height: 1.5em;
+                    border-top: solid 1px #EEE;
+
+                    .author {
+                        float: left;
+
+                        .author-picture {
+                            float: left;
+                            height: 1.5em;
+                            margin-right: 0.5em;
+                            @include border-radius(50%);
+                        }
+                        .author-caption {
+                            float: left;
+
+                            em {
+                                color: $blue;
+                            }
+                        }
+                    }
+                    .date {
+                        float: right;
+                        color: #DDD;
+                    }
+                }
+            }
+            .read-more {
+                @include transition(opacity 0.5s, bottom 0.5s);
+                position: absolute;
+                bottom: -100%;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                line-height: $news-article-height;
+                background: $blue;
+                color: $white;
+                text-align: center;
+                text-transform: uppercase;
+                @include opacity(0);
+
+                em {
+                    font-weight: bold;
+                }
+                .icon {
+                    position: relative;
+                    margin-left: 0.25em;
+                    font-size: 2.0em;
+                    top: 0.25em;
+                }
+            }
+        }
+        &.hover {
+            @include scale(1.05, 1.05);
+
+            .blur-target {
+                @include filter(blur(5px));
+            }
+            .read-more {
+                @include opacity(0.7);
+                bottom: 0;
+            }
+        }
+    }
+    .article-paging {
+        position: absolute;
+        top: 45%;
+        @include transition(color 0.2s);
+        cursor: pointer;
+        color: #DDD;
+        font-size: 5.0em;
+
+        &.article-prev {
+            left: -0.75em;
+        }
+        &.article-next {
+            right: -0.75em;
+        }
+        &:hover {
+            color: $blue;
+        }
+    }
+}
+//============================================================
+// * SECTION: GAMES
+//============================================================
+#games {
+    background-color: $dark-blue;
+    color: $white;
+    overflow: hidden;
+
+    .games {
+        overflow: hidden;
+    }
+    .game {
+        float: left;
+        width: calc(100%/3);
+        padding: 1.0em;
+        @include transition(transform 0.2s, ease-out);
+        @include box-sizing(border-box);
+
+        .wrapper {
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+
+            .picture {
+                width: 100%;
+                height: 164px;
+            }
+            .mask {
+                @include transition(opacity 0.5s, bottom 0.5s);
+                position: absolute;
+                bottom: -100%;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: $black;
+                text-align: center;
+                @include opacity(0);
+
+                .title {
+                    margin-top: 3.5em;
+                    margin-bottom: 0.25em;
+                    font-size: 1.25em;
+                    color: $white;
+                }
+                .genres {
+                    font-size: 0.9em;
+                    color: $blue;
+                }
+            }
+        }
+        &.hover {
+            @include scale(1.05, 1.05);
+
+            .picture {
+                @include filter(blur(5px));
+            }
+            .mask {
+                @include opacity(0.7);
+                bottom: 0;
+            }
+        }
+    }
+    .game-paging {
+        position: absolute;
+        top: 45%;
+        @include transition(opacity 0.2s);
+        cursor: pointer;
+        color: #FFF;
+        font-size: 5.0em;
+        @include opacity(0.1);
+
+        &.game-prev {
+            left: -0.75em;
+        }
+        &.game-next {
+            right: -0.75em;
+        }
+        &:hover {
+            @include opacity(0.8);
+        }
+    }
+}
+//============================================================
+// * SECTION: ABOUT
+//============================================================
+#about {
+    background-color: $lightest-gray;
+
+    .services {
+        margin-bottom: 2.0em;
+        text-align: center;
+
+        a.fa {
+            @include transition(opacity 0.2s, color 0.2s);
+            padding: 0.1em;
+            font-size: 5.0em;
+            color: #AAA;
+            text-decoration: none;
+            @include opacity(0.5);
+
+            &:hover {
+                @include opacity(1);
+
+                &.fa-youtube-square {
+                    color: #e83c36;
+                }
+                &.fa-facebook-square {
+                    color: #4C67A1;
+                }
+                &.fa-twitter-square {
+                    color: #659FCB;
+                }
+                &.fa-tumblr-square {
+                    color: #36465D;
+                }
+                &.fa-rss-square {
+                    color: #F79638;
+                }
+            }
+        }
+    }
+    .text {
+        line-height: 1.5em;
+        margin-bottom: 2.0em;
+        padding: 0 1.0em;
+    }
+    .team-members {
+        overflow: hidden;
+        text-align: center;
+
+        .team-member {
+            display: inline-block;
+            width: calc(100%/6);
+            padding: 1.0em;
+            text-align: center;
+            @include box-sizing(border-box);
+
+            .picture {
+                @include box-sizing(border-box);
+                width: 100%;
+                margin-bottom: 0.25em;
+                border: solid 4px #CCC;
+                @include border-radius(50%);
+            }
+            .name, .role {
+                width: 100%;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            .name {
+                margin-bottom: 0.25em;
+            }
+            .role {
+                font-size: 0.9em;
+                color: $blue;
+            }
+        }
+    }
+}
+//============================================================
+// * SECTION: CONTACT
+//============================================================
+#contact {
+    background-color: $green;
+    color: $white;
+
+    .text {
+        line-height: 1.5em;
+        margin-bottom: 2.0em;
+        padding: 0 1.0em;
+    }
+    .submit-form {
+        overflow: hidden;
+
+        .first-row {
+            overflow: hidden;
+        }
+        .email-group, .subject-group, .message-group {
+            .wrapper {
+                position: relative;
+                @include border-radius(3px);
+                padding: 1.0em;
+                background: #1cd6b1;
+            }
+            span {
+                color: #19bc9c;
+            }
+            input, textarea {
+                background: transparent;
+                font-family: Lato, sans-serif;
+                font-size: 14px;
+                font-weight: 200;
+                color: $white;
+                border: none;
+
+                &::-webkit-input-placeholder { color: $white; font-weight: 100; }
+                &:-moz-placeholder { /* Firefox 18- */ color: $white; font-weight: 100; }
+                &::-moz-placeholder {  /* Firefox 19+ */ color: $white; font-weight: 100; }
+                &:-ms-input-placeholder {   color: $white; font-weight: 100; }
+            }
+        }
+        .email-group, .subject-group {
+            float: left;
+            width: 50%;
+            @include box-sizing(border-box);
+
+            .wrapper {
+                span {
+                    display: inline-block;
+                    width: 4.0em;
+                }
+                input {
+                    outline: none;
+                    position: absolute;
+                    top: 0;
+                    left: 5.0em;
+                    width: 100%;
+                    height: 100%;
+                    @include box-sizing(border-box);
+                }
+            }
+        }
+        .email-group .wrapper {
+            margin-left: 1.0em;
+            margin-right: 0.5em;
+        }
+        .subject-group .wrapper {
+            margin-left: 0.5em;
+            margin-right: 1.0em;
+        }
+        .message-group {
+            width: 100%;
+            @include box-sizing(border-box);
+
+            .wrapper {
+                height: 15.0em;
+                margin: 1.0em;
+                padding: 1.0em;
+                background: #1cd6b1;
+            }
+            div {
+                color: #19bc9c;
+            }
+            textarea {
+                width: 100%;
+                height: 100%;
+                resize: none;
+                background: transparent;
+                font-family: Lato, sans-serif;
+                font-size: 14px;
+                color: $white;
+                border: none;
+                outline: none;
+                @include box-sizing(border-box);
+            }
+        }
+        .wrapper {
+            padding: 0 1.0em;
+
+            .submit-message-button {
+                width: 100%;
+                @include button(darken($green,5%));
+            }
+        }
+    }
+}

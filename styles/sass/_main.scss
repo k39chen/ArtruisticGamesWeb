@@ -1,16 +1,5 @@
-html {
-    background: #fafafa;
-    color: #595959;
-    font-family: Arial;
-    font-size: 12px;
-
-    width: 100%;
-    height: 100%;
-    padding: 4.0em;
-    @include box-sizing(border-box);
-
-    h1 {
-        text-align: center;
-        font-size: 2.0em;
-    }
-}
+@import "_compass";
+@import "_fonts";
+@import "_vars";
+@import "_base";
+@import "_sections";

@@ -1,0 +1,32 @@
+<%
+var message = !_.isUndefined(this.message) ? this.message : null;
+%>
+<h1>Contact</h1>
+<div class="content">
+    <div class="text"><%=message%></div>
+    <div class="submit-form">
+        <div class="first-row">
+            <div class="email-group">
+                <div class="wrapper">
+                    <span>Email</span>
+                    <input type="email" name="email" placeholder="Enter email" />
+                </div>
+            </div>
+            <div class="subject-group">
+                <div class="wrapper">
+                    <span>Subject</span>
+                    <input type="text" name="subject" placeholder="Enter subject" />
+                </div>
+            </div>
+        </div>
+        <div class="message-group">
+            <div class="wrapper">
+                <div>Message</div>
+                <textarea name="message" placeholder="Enter message"></textarea>
+            </div>
+        </div>
+        <div class="wrapper">
+            <button class="submit-message-button"><i class="fa fa-send"></i> Send Message</button>
+        </div>
+    </div>
+</div>

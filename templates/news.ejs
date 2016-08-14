@@ -1,0 +1,35 @@
+<%
+var newsArticles = !_.isUndefined(this.newsArticles) ? this.newsArticles : [];
+%>
+<h1>News</h1>
+<div class="content">
+    <div class="news-articles">
+    <% _.each(newsArticles, function(article) { %>
+        <div class="news-article">
+            <div class="wrapper">
+                <div class="blur-target">
+                    <img class="banner" src="static/images/<%=article.banner%>" />
+                    <div class="text-wrapper">
+                        <div class="title"><%=article.title%></div>
+                        <div class="text"><%=article.text%></div>
+                        <div class="shadow"></div>
+                    </div>
+                    <div class="posted">
+                        <div class="author">
+                            <img class="author-picture" src="static/images/<%=article.authorPicture%>" />
+                            <div class="author-caption">Posted by <em><%=article.authorName%></em></div>
+                        </div>
+                        <div class="date"><%=article.date%></div>
+                    </div>
+                </div>
+                <div class="read-more">
+                    <span>Read <em>More</em></span>
+                    <i class="icon fa fa-arrow-circle-o-right"></i>
+                </div>
+            </div>
+        </div>
+    <% }); %>
+    </div>
+    <a class="article-paging article-prev fa fa-chevron-left"></a>
+    <a class="article-paging article-next fa fa-chevron-right"></a>
+</div>

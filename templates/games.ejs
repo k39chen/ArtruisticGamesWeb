@@ -1,0 +1,21 @@
+<%
+var games = !_.isUndefined(this.games) ? this.games : [];
+%>
+<h1>Games</h1>
+<div class="content">
+    <div class="games">
+    <% _.each(games, function(game) { %>
+        <div class="game">
+            <div class="wrapper">
+                <img class="picture" src="static/images/<%=game.picture%>" />
+                <div class="mask">
+                    <div class="title"><%=game.title%></div>
+                    <div class="genres"><%=game.genres%></div>
+                </div>
+            </div>
+        </div>
+    <% }); %>
+    </div>
+    <a class="game-paging game-prev fa fa-chevron-left"></a>
+    <a class="game-paging game-next fa fa-chevron-right"></a>
+</div>

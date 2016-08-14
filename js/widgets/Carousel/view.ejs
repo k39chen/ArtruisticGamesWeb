@@ -1,0 +1,15 @@
+<%
+var sources = !_.isUndefined(this.sources) ? this.sources : [];
+%>
+<div class="panels">
+<% _.each(sources, function(source, index) { %>
+    <img class="panel" src="static/images/<%=source.src%>" data-index=<%=index%> />
+<% }); %>
+</div>
+<div class="overlay">
+    <div class="controls">
+    <% _.each(sources, function(source, index) { %>
+        <a class="control fa fa-circle" data-index="<%=index%>"></a>
+    <% }); %>
+    </div>
+</div>
