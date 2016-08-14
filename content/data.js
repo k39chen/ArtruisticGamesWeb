@@ -137,7 +137,7 @@ window.AG_DATA = {
             description: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae laboriosam ipsa consequatur, sunt tempore non impedit? Sint reiciendis accusantium ad laboriosam non delectus alias, ea, accusamus quasi, unde minima. Fugit!</p><p>Unde ea quibusdam soluta expedita iste accusantium, aliquid necessitatibus nostrum vitae alias, doloremque sequi consequuntur ipsam pariatur error similique voluptates ex laudantium magni facere quidem atque. Doloribus facere quaerat suscipit.</p><p>Corporis animi nisi pariatur ab, unde, omnis vitae non dolore! Quidem laborum, quo exercitationem dolorem adipisci excepturi quae. Error earum quae cupiditate accusantium deleniti commodi beatae soluta ducimus fugiat cumque?</p>"
         }
     ],
-    ABOUT_MESSAGE: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla iste quae voluptatem obcaecati necessitatibus enim tenetur et ipsum officia. Iste odio consectetur rerum, repellendus aspernatur dicta debitis optio temporibus totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla iste quae voluptatem obcaecati necessitatibus enim tenetur et ipsum officia. Iste odio consectetur rerum, repellendus aspernatur dicta debitis optio temporibus totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla iste quae voluptatem obcaecati necessitatibus enim tenetur et ipsum officia. Iste odio consectetur rerum, repellendus aspernatur dicta debitis optio temporibus totam.",
+    ABOUT_MESSAGE: "Artruistic Games is a decentralized independent game studio with members located all around the  world. Brought together by common purpose, we strive to create games that challenge the limits of the medium and enrich the lives of its players. No matter what odds we face, our team will rise to the occasion, living by our motto: The dream will never die!",
     ABOUT_LINKS: {
         YouTube: "#",
         Facebook: "https://www.facebook.com/Artruistic-Games-838158136305416/timeline/",
@@ -167,5 +167,5 @@ window.AG_DATA = {
             role: "Graphics Programmer"
         }
     ],
-    CONTACT_MESSAGE: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut ducimus fuga possimus, est iure accusamus sit. Sed libero illo nam accusantium. Enim molestiae cum ipsum perferendis, id, ipsam expedita totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut ducimus fuga possimus, est iure accusamus sit. Sed libero illo nam accusantium. Enim molestiae cum ipsum perferendis, id, ipsam expedita totam."
+    CONTACT_MESSAGE: "Got something on your mind to tell us? We would love to hear from you! Use the contact form below or send us a message at <insert company email here>. You can also catch us on social media here: (edited)"
 };
